@@ -1,10 +1,10 @@
 package cl.smartjob.ejercicio.infraestructure.services.impl;
 
-import cl.smartjob.ejercicio.api.dto.requests.LoginRequest;
-import cl.smartjob.ejercicio.api.dto.responses.AuthResponse;
 import cl.smartjob.ejercicio.domain.repositories.UserRepository;
+import cl.smartjob.ejercicio.dto.requests.LoginRequest;
+import cl.smartjob.ejercicio.dto.responses.AuthResponse;
+import cl.smartjob.ejercicio.infraestructure.jwt.JwtService;
 import cl.smartjob.ejercicio.infraestructure.services.AuthService;
-import cl.smartjob.ejercicio.util.jwt.JwtService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;

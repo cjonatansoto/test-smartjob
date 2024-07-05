@@ -1,4 +1,4 @@
-package cl.smartjob.ejercicio.api.dto.responses;
+package cl.smartjob.ejercicio.dto.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package cl.smartjob.ejercicio.util.jwt;
+package cl.smartjob.ejercicio.infraestructure.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,8 +1,8 @@
-package cl.smartjob.ejercicio.api.dto.mappers;
+package cl.smartjob.ejercicio.dto.mappers;
 
-import cl.smartjob.ejercicio.api.dto.requests.PhoneRequest;
-import cl.smartjob.ejercicio.api.dto.responses.PhoneResponse;
 import cl.smartjob.ejercicio.domain.entities.Phone;
+import cl.smartjob.ejercicio.dto.requests.PhoneRequest;
+import cl.smartjob.ejercicio.dto.responses.PhoneResponse;
 import org.mapstruct.Mapper;
 
 @Mapper

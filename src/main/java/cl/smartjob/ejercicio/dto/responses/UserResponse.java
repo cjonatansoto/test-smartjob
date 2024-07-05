@@ -1,4 +1,4 @@
-package cl.smartjob.ejercicio.api.dto.responses;
+package cl.smartjob.ejercicio.dto.responses;
 
 import cl.smartjob.ejercicio.util.CoreConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;

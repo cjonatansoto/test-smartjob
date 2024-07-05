@@ -1,4 +1,4 @@
-package cl.smartjob.ejercicio.api.dto.requests;
+package cl.smartjob.ejercicio.dto.requests;
 
 import cl.smartjob.ejercicio.util.CoreConstants;
 import io.swagger.v3.oas.annotations.media.Schema;

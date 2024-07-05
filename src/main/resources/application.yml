@@ -1,19 +1,19 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/tests
-    password: ''
+    driver-class-name: org.sqlite.JDBC
+    username: sa
+    url: jdbc:sqlite:memory:myDb?cache=shared
+    password: sa
   jpa:
     properties:
       hibernate:
         dialect:
-          nodeValue: org.hibernate.dialect.MySQL8Dialect
+          nodeValue: org.hibernate.community.dialect.SQLiteDialect
           format_sql: 'true'
     hibernate:
       ddl-auto: update
   application:
-    name: ejercicio
+    name: Ejercicio
 server:
   port: '8080'
 logging:

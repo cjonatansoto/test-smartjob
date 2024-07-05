@@ -1,5 +1,6 @@
 package cl.smartjob.ejercicio.config;
-import cl.smartjob.ejercicio.util.jwt.JwtAuthFilter;
+
+import cl.smartjob.ejercicio.infraestructure.jwt.JwtAuthFilter;
 import cl.smartjob.ejercicio.util.CoreConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
