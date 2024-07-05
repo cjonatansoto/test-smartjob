@@ -1,13 +1,14 @@
 package cl.smartjob.ejercicio.infraestructure.services.impl;
 
-import cl.smartjob.ejercicio.api.dto.mappers.PhoneMapper;
-import cl.smartjob.ejercicio.api.dto.mappers.UserMapper;
-import cl.smartjob.ejercicio.api.dto.requests.UserRequest;
-import cl.smartjob.ejercicio.api.dto.responses.AuthResponse;
-import cl.smartjob.ejercicio.api.dto.responses.UserResponse;
+import cl.smartjob.ejercicio.dto.mappers.PhoneMapper;
+import cl.smartjob.ejercicio.dto.mappers.UserMapper;
+import cl.smartjob.ejercicio.dto.requests.UserRequest;
+import cl.smartjob.ejercicio.dto.responses.AuthResponse;
+import cl.smartjob.ejercicio.dto.responses.UserResponse;
 import cl.smartjob.ejercicio.exception.NotFoundException;
-import cl.smartjob.ejercicio.util.jwt.JwtService;
+
 import cl.smartjob.ejercicio.domain.repositories.UserRepository;
+import cl.smartjob.ejercicio.infraestructure.jwt.JwtService;
 import cl.smartjob.ejercicio.infraestructure.services.UserService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;

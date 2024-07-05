@@ -27,7 +27,7 @@ import static org.hibernate.generator.EventType.UPDATE;
 @Table(name = "users")
 //borrado suave para el campo isActive
 @SQLDelete(sql = "UPDATE users SET is_active = false WHERE id = ?")
-//condicion
+//condicion de findAll **
 @Where(clause = "is_active = true")
 public class User implements UserDetails, Serializable {
     @Id

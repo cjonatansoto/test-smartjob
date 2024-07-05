@@ -1,5 +1,6 @@
-package cl.smartjob.ejercicio.util.jwt;
+package cl.smartjob.ejercicio.infraestructure.jwt;
 
+import cl.smartjob.ejercicio.util.CoreConstants;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -25,29 +26,16 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
-
-
-
-
-
-
-
-
-
-    public static final String AUTHORIZATION_HEADER = "Authorization";
-    public static final String AUTHORIZATION_HEADER_BEARER = "Bearer ";
-
-
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-        final var requestTokenHeader = request.getHeader(AUTHORIZATION_HEADER);
+        final var requestTokenHeader = request.getHeader(CoreConstants.AUTHORIZATION_HEADER);
         String username = null;
         String jwt = null;
 
         if (Objects.nonNull(requestTokenHeader)
-                && requestTokenHeader.startsWith(AUTHORIZATION_HEADER_BEARER)) {
+                && requestTokenHeader.startsWith(CoreConstants.AUTHORIZATION_HEADER_BEARER)) {
             jwt = requestTokenHeader.substring(7);
             try {
                 username = jwtService.getUsernameFromToken(jwt);

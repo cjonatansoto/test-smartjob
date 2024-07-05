@@ -1,8 +1,8 @@
-package cl.smartjob.ejercicio.api.controllers;
+package cl.smartjob.ejercicio.controllers;
 
-import cl.smartjob.ejercicio.api.dto.requests.LoginRequest;
-import cl.smartjob.ejercicio.api.dto.requests.UserRequest;
-import cl.smartjob.ejercicio.api.dto.responses.AuthResponse;
+import cl.smartjob.ejercicio.dto.requests.LoginRequest;
+import cl.smartjob.ejercicio.dto.requests.UserRequest;
+import cl.smartjob.ejercicio.dto.responses.AuthResponse;
 import cl.smartjob.ejercicio.infraestructure.services.AuthService;
 import cl.smartjob.ejercicio.infraestructure.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;

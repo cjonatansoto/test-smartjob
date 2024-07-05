@@ -1,7 +1,7 @@
-package cl.smartjob.ejercicio.api.controllers;
+package cl.smartjob.ejercicio.controllers;
 
-import cl.smartjob.ejercicio.api.dto.requests.UserRequest;
-import cl.smartjob.ejercicio.api.dto.responses.UserResponse;
+import cl.smartjob.ejercicio.dto.requests.UserRequest;
+import cl.smartjob.ejercicio.dto.responses.UserResponse;
 import cl.smartjob.ejercicio.infraestructure.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
