@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -34,8 +35,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserResponse> findAll() {
-        var users = this.userRepository.findAll().stream().map(this.userMapper::entityToResponse).toList();
-        return users;
+        return this.userRepository.findAll().stream().map(this.userMapper::entityToResponse).toList();
     }
 
     @Override
@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService {
         var user = userMapper.requestToEntity(userRequest);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setLastLogin(LocalDateTime.now());
+        user.setIsActive(Boolean.TRUE);
         var phones = userRequest.getPhones().stream().map(this.phoneMapper::requestToEntity).collect(Collectors.toSet());
         phones.forEach(p -> p.setUser(user));
         user.setPhones(phones);
@@ -58,13 +59,16 @@ public class UserServiceImpl implements UserService {
     public UserResponse created(UserRequest userRequest) {
         var user = userMapper.requestToEntity(userRequest);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        var phones = userRequest.getPhones().stream().map(this.phoneMapper::requestToEntity).collect(Collectors.toSet());
+        phones.forEach(p -> p.setUser(user));
+        user.setPhones(phones);
         var userToPersist = userRepository.saveAndFlush(user);
         return this.userMapper.entityToResponse(userToPersist);
     }
 
     @Override
     public UserResponse show(UUID id) {
-        var user = this.userRepository.findById(id).orElseThrow();
+        var user = this.userRepository.findById(id).orElseThrow(() -> new NotFoundException("users"));
         log.info("User show with id {}", user.getId());
         var usersResponse = this.userMapper.entityToResponse(user);
         var phonesResponse = user.getPhones().stream().map(this.phoneMapper::entityToResponse).toList();

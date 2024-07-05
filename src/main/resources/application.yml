@@ -1,17 +1,11 @@
 spring:
   datasource:
-    driver-class-name: org.sqlite.JDBC
+    url: jdbc:h2:mem:mydb
     username: sa
-    url: jdbc:sqlite:memory:myDb?cache=shared
-    password: sa
+    password: password
+    driverClassName: org.h2.Driver
   jpa:
-    properties:
-      hibernate:
-        dialect:
-          nodeValue: org.hibernate.community.dialect.SQLiteDialect
-          format_sql: 'true'
-    hibernate:
-      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
   application:
     name: Ejercicio
 server:
