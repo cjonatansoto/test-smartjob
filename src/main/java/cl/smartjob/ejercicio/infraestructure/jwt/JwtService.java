@@ -1,5 +1,6 @@
 package cl.smartjob.ejercicio.infraestructure.jwt;
 
+import cl.smartjob.ejercicio.util.CoreConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -17,8 +18,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
-    public static final String JWT_SECRET = "586E3272357538782F413F4428472B4B6250655368566B597033733676397924";
+
 
     public String getToken(UserDetails user) {
         return getToken(new HashMap<>(), user);
@@ -30,13 +30,13 @@ public class JwtService {
                 .setClaims(extraClaims)
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + CoreConstants.JWT_TOKEN_VALIDITY * 1000))
                 .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
     private Key getKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(JWT_SECRET);
+        byte[] keyBytes = Decoders.BASE64.decode(CoreConstants.JWT_SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 

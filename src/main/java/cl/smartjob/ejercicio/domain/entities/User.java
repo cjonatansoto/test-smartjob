@@ -58,7 +58,6 @@ public class User implements UserDetails, Serializable {
     )
     private Set<Phone> phones;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new HashSet<GrantedAuthority>();
