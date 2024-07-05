@@ -8,12 +8,10 @@ import org.hibernate.annotations.CurrentTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -59,7 +57,6 @@ public class User implements UserDetails, Serializable {
             mappedBy = "user"
     )
     private Set<Phone> phones;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
